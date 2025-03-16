@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+
+import Example from '@/components/example'
+
 import './globals.css'
+
 ;[].forEach((item) => {
   console.log(item)
 })
@@ -35,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Example />
         {children}
       </body>
     </html>
