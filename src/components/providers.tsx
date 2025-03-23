@@ -10,9 +10,12 @@ export default function Providers({ children }: { children: ReactNode }) {
   const router = useRouter()
 
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    <HeroUIProvider navigate={router.push}>
+    <HeroUIProvider
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      navigate={router.push}
+      className="flex h-full w-full flex-col"
+    >
       <NextThemesProvider attribute="class">{children}</NextThemesProvider>
     </HeroUIProvider>
   )
