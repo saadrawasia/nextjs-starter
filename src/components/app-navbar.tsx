@@ -12,6 +12,7 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from '@heroui/react'
+import { IconPackage } from '@tabler/icons-react'
 
 export default function AppNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -29,7 +30,8 @@ export default function AppNavbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <IconPackage />
+          <p className="font-bold text-inherit">Next.js Starter</p>
         </NavbarBrand>
       </NavbarContent>
 
