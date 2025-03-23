@@ -14,6 +14,8 @@ import {
 } from '@heroui/react'
 import { IconPackage } from '@tabler/icons-react'
 
+import { ThemeSwitcher } from './theme-switcher'
+
 export default function AppNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
@@ -43,6 +45,9 @@ export default function AppNavbar() {
             </Link>
           </NavbarItem>
         ))}
+        <NavbarItem>
+          <ThemeSwitcher />
+        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
