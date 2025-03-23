@@ -50,6 +50,9 @@ export default function AppNavbar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
+        <NavbarMenuItem>
+          <ThemeSwitcher showLabel={true} />
+        </NavbarMenuItem>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item.label}-${index}`}>
             <Link className="w-full" href={item.href} size="lg">

@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from 'react'
 
-import { useTheme } from 'next-themes'
+import { Switch } from '@heroui/react'
+import { IconMoon, IconSun } from '@tabler/icons-react'
 
-export function ThemeSwitcher() {
+import useSystemTheme from '@/hooks/use-system-theme'
+
+export function ThemeSwitcher({ showLabel }: { showLabel?: boolean }) {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme, systemTheme } = useTheme()
-
-  console.log({ theme, systemTheme })
+  const { theme, setTheme } = useSystemTheme()
 
   useEffect(() => {
     setMounted(true)
@@ -17,10 +18,17 @@ export function ThemeSwitcher() {
   if (!mounted) return null
 
   return (
-    <div>
-      The current theme is: {theme}
-      <button onClick={() => setTheme('light')}>Light Mode</button>
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
-    </div>
+    <Switch
+      isSelected={theme === 'light'}
+      onValueChange={() =>
+        theme === 'dark' ? setTheme('light') : setTheme('dark')
+      }
+      color="success"
+      endContent={<IconSun />}
+      size="lg"
+      startContent={<IconMoon />}
+    >
+      {showLabel && 'Theme'}
+    </Switch>
   )
 }
